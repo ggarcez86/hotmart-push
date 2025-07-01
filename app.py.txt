@@ -1,0 +1,14 @@
+from flask import Flask, request
+
+app = Flask(__name__)
+
+@app.route("/webhook", methods=["POST"])
+def webhook():
+    data = request.json
+    print("🔔 Venda recebida!")
+    print(data)
+    return {"status": "ok"}
+
+@app.route("/", methods=["GET"])
+def home():
+    return "Hotmart Push está no ar, lek!"
